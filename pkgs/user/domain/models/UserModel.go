@@ -2,14 +2,13 @@ package user_models
 
 import (
 	user_value_objects "github.com/alianmc1988/go-restfull-gin/pkgs/user/domain/valueObjects"
-	uuid "github.com/jackc/pgx/pgtype/ext/gofrs-uuid"
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
 )
 
 type User struct {
 	gorm.Model
-	ID  	uuid.UUID `gorm:"type:uuid;default:uuid_generate_v4()" primary_key:"true"`
+	ID  	string `gorm:"type:uuid;default:uuid_generate_v4()" primary_key:"true"`
 	FirstName string `json:"first_name"`
 	LastName string `json:"last_name"`
 	Email string `json:"email"`
@@ -25,7 +24,7 @@ type UserSerialized struct {
 
 func (u *User) Serialize () *UserSerialized {
 	return &UserSerialized{
-		ID: u.ID.UUID.String(),
+		ID: u.ID,
 		FirstName: u.FirstName,
 		LastName: u.LastName,
 		Email: u.Email,
@@ -34,7 +33,6 @@ func (u *User) Serialize () *UserSerialized {
 
 func NewUser(u *user_value_objects.CreateUserDTO) *User {
 	return &User{
-		ID: uuid.UUID{},
 		FirstName: u.FirstName,
 		LastName: u.LastName,
 		Email: u.Email,

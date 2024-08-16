@@ -31,7 +31,7 @@ func NewUserEntity(id string, firstName string, lastName string, email string, p
 
 func SerializeUserEntity(u *user_models.User) *UserSerialized {
 	return &UserSerialized{
-		ID: u.ID.UUID.String(),
+		ID: u.ID,
 		FirstName: u.FirstName,
 		LastName: u.LastName,
 		Email: u.Email,

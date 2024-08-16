@@ -15,7 +15,7 @@ func ListUsers() ( [] user_entities.UserEntity) {
 	var usersEntities [] user_entities.UserEntity
 
 	for _, user:= range users {
-		nUser:= user_entities.NewUserEntity(user.ID.UUID.String(), user.FirstName, user.LastName, user.Email, user.Password)
+		nUser:= user_entities.NewUserEntity(user.ID, user.FirstName, user.LastName, user.Email, user.Password)
 		usersEntities = append(usersEntities, *nUser)
 	}
 
