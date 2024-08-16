@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"github.com/alianmc1988/go-restfull-gin/database"
-	user_models "github.com/alianmc1988/go-restfull-gin/pkgs/user/domain/models"
 	"github.com/gin-gonic/gin"
 )
 
@@ -22,7 +21,7 @@ func NewServer(host string, port string) *Server {
 
 func (s *Server) Initialize(){
 	DB:=database.DBConnect()
-	DB.AutoMigrate(&user_models.User{})
+	database.MigrateModels(DB)
 
 	InitializeRoutes(s)	
 }
