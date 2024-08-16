@@ -28,6 +28,11 @@ var userRoutes = []base.RouterType{
 		Method: http.MethodDelete,
 		Handler: user_handlers.DeleteUserHandler,
 	},
+	{
+		Path: fmt.Sprintf("%s/:id", BaseUserPath),
+		Method: http.MethodPatch,
+		Handler: user_handlers.UpdateUserHandler,
+	},
 }
 
 

@@ -6,7 +6,7 @@ import (
 )
 
 var Models  = []interface {}{
-&user_models.User{},
+	&user_models.User{},
 }
 
 func MigrateModels(db *gorm.DB) {
