@@ -7,10 +7,10 @@ import (
 
 
 func main() {
-	config:= base.Config
+	config:= base.GetConfig()
 
 
-	s:= cmd.NewServer(config["HOST"], config["PORT"])
+	s:= cmd.NewServer(config.Host, config.Port)
 	s.Run()
 
 }
