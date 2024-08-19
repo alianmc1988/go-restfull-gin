@@ -11,7 +11,6 @@ import (
 	var lock = &sync.Mutex{}
 
 
-// type ConfigType map[string]string
 type Config struct {
 	Port string
 	Host string
